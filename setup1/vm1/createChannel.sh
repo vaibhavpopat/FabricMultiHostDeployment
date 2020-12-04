@@ -24,7 +24,7 @@ createChannel(){
     setGlobalsForPeer0Org1
     
     # Replace localhost with your orderer's vm IP address
-    peer channel create -o localhost:7050 -c $CHANNEL_NAME \
+    peer channel create -o 104.209.245.169:7050 -c $CHANNEL_NAME \
     --ordererTLSHostnameOverride orderer.example.com \
     -f ./../../artifacts/channel/${CHANNEL_NAME}.tx --outputBlock ./channel-artifacts/${CHANNEL_NAME}.block \
     --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
@@ -46,14 +46,14 @@ joinChannel(){
 updateAnchorPeers(){
     setGlobalsForPeer0Org1
     # Replace localhost with your orderer's vm IP address
-    peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com -c $CHANNEL_NAME -f ./../../artifacts/channel/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    peer channel update -o 104.209.245.169:7050 --ordererTLSHostnameOverride orderer.example.com -c $CHANNEL_NAME -f ./../../artifacts/channel/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
     
 }
 
-# updateAnchorPeers
+updateAnchorPeers
 
 # removeOldCrypto
 
-createChannel
-joinChannel
-updateAnchorPeers
+# createChannel
+# joinChannel
+# updateAnchorPeers
